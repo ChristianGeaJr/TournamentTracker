@@ -22,6 +22,7 @@ namespace TrackerUI
             GlobalConfig.InitializeConnetcions(DatabaseType.Sql);
             //Application.Run(new TournamentDashboardForm()); // When this form is closed, the application will close even if there are other forms open.
             Application.Run(new TournamentDashboardForm());
+            //This code was added to the brench Test
 
   
         }
@@ -33,7 +34,7 @@ namespace TrackerUI
 
         public static void TesteMetodo()
         {
-
+            //This code was added to the brench Test
         }
     }
 }
