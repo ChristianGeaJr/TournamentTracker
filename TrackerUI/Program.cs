@@ -22,7 +22,6 @@ namespace TrackerUI
             GlobalConfig.InitializeConnetcions(DatabaseType.Sql);
             //Application.Run(new TournamentDashboardForm()); // When this form is closed, the application will close even if there are other forms open.
             Application.Run(new TournamentDashboardForm());
-            //This was added to the main branch
 
   
         }
@@ -34,7 +33,7 @@ namespace TrackerUI
 
         public static void TesteMetodo()
         {
-            //This was added to the main branch
+
         }
     }
 }
