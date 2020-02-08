@@ -18,7 +18,6 @@ namespace TrackerLibrary.DataAccess
     public class TextConnector : IDataConnection
     {
 
-        //TODO - Wire up the CreatePrize method for Text Files.
         public void CreatePrize(PrizeModel model)
         {
 

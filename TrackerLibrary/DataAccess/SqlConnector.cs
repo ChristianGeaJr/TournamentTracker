@@ -39,7 +39,6 @@ namespace TrackerLibrary.DataAccess
             }
         }
 
-        //TODO - Make the CreatePrize Method actually save to the database.
         /// <summary>
         /// Saves a new Prize to the Database.
         /// </summary>

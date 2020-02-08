@@ -82,7 +82,6 @@ namespace TrackerUI
 
         private bool ValidateForm()
         {
-            //TODO - Add validation to the Create Member Form
 
             if (firstNameTextBox.Text.Length == 0)
             {
@@ -191,7 +190,6 @@ namespace TrackerUI
 
             this.Close();
 
-            // TODO - If we aren't closing this form after creation, reset the form.
 
             //foreach (var teamMember in selectedTeamMembers)
             //{
