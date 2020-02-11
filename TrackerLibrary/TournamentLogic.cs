@@ -132,6 +132,19 @@ namespace TrackerLibrary
                 }
             }
             //The tournament is complete.
+
+            double finalScoreTeam1 = model.Rounds.Last().Last().Entries.First().Score;
+            double finalScoreTeam2 = model.Rounds.Last().Last().Entries.Last().Score;
+
+            if(finalScoreTeam1 > finalScoreTeam2)
+            {
+                model.Winner = model.Rounds.Last().Last().Entries.First().TeamCompeting;
+            }
+            else
+            {
+                model.Winner = model.Rounds.Last().Last().Entries.Last().TeamCompeting;
+            }
+           
             CompleteTournament(model);
 
             return output -1;

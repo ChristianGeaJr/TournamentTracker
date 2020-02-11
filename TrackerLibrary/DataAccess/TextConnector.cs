@@ -140,6 +140,12 @@ namespace TrackerLibrary.DataAccess
 
             TournamentLogic.UpdateTournamentResults(model);
         }
+
+        public List<TournamentModel> TournamentRatio(int dateFilter, DateTime dateCreated, DateTime dateFinished, int tournamentFilter, string entryFeeFilter, decimal? entryFee, int? winnerId)
+        {
+            //TODO - Create the TournamentRatio() method for Text Files
+            throw new NotImplementedException();
+        }
     }
 
 
