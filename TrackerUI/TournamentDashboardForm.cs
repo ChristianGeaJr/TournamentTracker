@@ -14,14 +14,14 @@ namespace TrackerUI
 {
     public partial class TournamentDashboardForm : Form
     {
-        List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
+        public List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
         public TournamentDashboardForm()
         {
             InitializeComponent();
             InitializeLists();
         }
 
-        private void InitializeLists()
+        public void InitializeLists()
         {
             loadExistingTournamentDropDown.DataSource = tournaments;
             loadExistingTournamentDropDown.DisplayMember = "TournamentName";
@@ -29,14 +29,14 @@ namespace TrackerUI
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
-            CreateTournamentForm tournament = new CreateTournamentForm();
+            CreateTournamentForm tournament = new CreateTournamentForm(this);
             tournament.Show();
         }
 
         private void loadTournamentButton_Click(object sender, EventArgs e)
         {
             TournamentModel tm = (TournamentModel)loadExistingTournamentDropDown.SelectedItem;
-            TournamentViewerForm frm = new TournamentViewerForm(tm);
+            TournamentViewerForm frm = new TournamentViewerForm(tm, this);
             frm.Show();
         }
 

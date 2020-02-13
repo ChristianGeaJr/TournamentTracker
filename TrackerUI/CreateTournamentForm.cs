@@ -17,11 +17,14 @@ namespace TrackerUI
         List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
         List<TeamModel> selectedTeams = new List<TeamModel>();
         List<PrizeModel> selectedPrizes = new List<PrizeModel>();
+        TournamentDashboardForm _frm;
 
-        public CreateTournamentForm()
+        public CreateTournamentForm(TournamentDashboardForm frm)
         {
             InitializeComponent();
             InitializeLists();
+            _frm = frm;
+
         }
 
         private void InitializeLists()
@@ -175,7 +178,7 @@ namespace TrackerUI
 
             MessageBox.Show("Tournament Created.");
 
-            TournamentViewerForm frm = new TournamentViewerForm(tm);
+            TournamentViewerForm frm = new TournamentViewerForm(tm, _frm);
             frm.Show();
 
             this.Close();

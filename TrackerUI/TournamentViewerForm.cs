@@ -17,9 +17,10 @@ namespace TrackerUI
         private TournamentModel tournament;
         List<int> rounds = new List<int>();
         List<MatchupModel> selectedMatchups = new List<MatchupModel>();
+        TournamentDashboardForm _frm;
 
 
-        public TournamentViewerForm(TournamentModel tournamentModel)
+        public TournamentViewerForm(TournamentModel tournamentModel, TournamentDashboardForm frm)
         {
             InitializeComponent();
             tournament = tournamentModel;
@@ -27,11 +28,23 @@ namespace TrackerUI
 
             LoadFormData();
             LoadRounds();
+            _frm = frm;
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            _frm.tournaments = GlobalConfig.Connection.GetTournament_All();
+            _frm.InitializeLists();
         }
 
         private void Tournament_OnTournamentComplet(object sender, DateTime e)
         {
             this.Close();
+            //_frm.tournaments = GlobalConfig.Connection.GetTournament_All();
+            //_frm.InitializeLists();
+
+
         }
 
         private void LoadFormData()
