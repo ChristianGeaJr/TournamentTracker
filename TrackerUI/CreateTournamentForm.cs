@@ -160,6 +160,7 @@ namespace TrackerUI
             tm.EntryFee = fee;
             tm.Prizes = selectedPrizes;
             tm.EnteredTeams = selectedTeams;
+            tm.Active = 1;
 
 
             TournamentLogic.CreateRounds(tm);

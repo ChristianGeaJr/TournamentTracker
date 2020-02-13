@@ -139,22 +139,32 @@ namespace TrackerLibrary
             if(finalScoreTeam1 > finalScoreTeam2)
             {
                 model.Winner = model.Rounds.Last().Last().Entries.First().TeamCompeting;
+                model.WinnerId = model.Winner.Id;
             }
             else
             {
                 model.Winner = model.Rounds.Last().Last().Entries.Last().TeamCompeting;
+                model.WinnerId = model.Winner.Id;
             }
-           
-            CompleteTournament(model);
+
+            model.Active = 0;
+            CompleteTournament(model); //<= Modification here
+            //GlobalConfig.Connection.CompleteTournament(model);
 
             return output -1;
         }
 
         private static void CompleteTournament(TournamentModel model)
         {
-            GlobalConfig.Connection.CompleteTournament(model);
+                        
             TeamModel winners =  model.Rounds.Last().First().Winner;
+            //model.WinnerId = winners.Id;
             TeamModel runnerUp = model.Rounds.Last().First().Entries.Where(x => x.TeamCompeting != winners).First().TeamCompeting;
+
+            model.DateFinished = DateTime.Now;
+            model.Winner = winners;
+
+            GlobalConfig.Connection.CompleteTournament(model);
 
             decimal winnerPrize = 0;
             decimal runnerUpPrize = 0;
@@ -217,6 +227,8 @@ namespace TrackerLibrary
             EmalLogic.SendEmail(new List<string>(), bcc, subject, body.ToString());
 
             //Complete Tournament
+            //model.DateFinished = DateTime.Now;
+            //model.Winner = winners;
             model.CompleteTournament();
         }
 

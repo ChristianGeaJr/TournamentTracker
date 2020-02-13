@@ -100,6 +100,8 @@ namespace TrackerLibrary.DataAccess
 
             model.SaveRoundsToFile();
 
+            model.DateCreated = DateTime.Now;
+
             tournaments.Add(model);
 
             tournaments.SaveToTournamentFile();
@@ -133,18 +135,68 @@ namespace TrackerLibrary.DataAccess
         {
             List<TournamentModel> tournaments = GlobalConfig.TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels();
 
-           
-            tournaments.Remove(model);
+
+            //tournaments.Remove(model);
+            if (tournaments.Count > 0)
+            {
+                tournaments.Remove(tournaments.Where(x => x.Id == model.Id).First());
+            }
+
+            tournaments.Add(model);
+
+            tournaments.OrderBy(x => x.Id);
 
             tournaments.SaveToTournamentFile();
 
-            TournamentLogic.UpdateTournamentResults(model);
+            //TournamentLogic.UpdateTournamentResults(model);
         }
 
         public List<TournamentModel> TournamentRatio(int dateFilter, DateTime dateCreated, DateTime dateFinished, int tournamentFilter, string entryFeeFilter, decimal? entryFee, int? winnerId)
         {
             //TODO - Create the TournamentRatio() method for Text Files
-            throw new NotImplementedException();
+            List<TournamentModel> output = GlobalConfig.TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels();
+
+            if (dateFilter == 1)
+            {
+                DateTime initialDate = DateTime.Parse($"{dateCreated.ToString().Substring(0, 10)} 00:00:00");
+                //var teste = $"{dateCreated.ToString().Substring(0, 10)}";
+                DateTime finalDate = DateTime.Parse($"{dateFinished.ToString().Substring(0, 10)} 00:00:00");
+                output = output.Where(x => DateTime.Parse($"{x.DateCreated.ToString().Substring(0, 10)} 00:00:00") >= initialDate && DateTime.Parse($"{x.DateCreated.ToString().Substring(0, 10)} 00:00:00") <= finalDate).ToList();
+            }
+            if (dateFilter == 2)
+            {
+                DateTime initialDate = DateTime.Parse($"{dateCreated.ToString().Substring(0, 10)} 00:00:00");
+                DateTime finalDate = DateTime.Parse($"{dateFinished.ToString().Substring(0, 10)} 00:00:00");
+                output = output.Where(x => DateTime.Parse($"{x.DateFinished.ToString().Substring(0, 10)} 00:00:00") >= initialDate && DateTime.Parse($"{x.DateFinished.ToString().Substring(0, 10)} 00:00:00") <= finalDate).ToList();
+            }
+            if (tournamentFilter == 2)
+            {
+                output = output.Where(x => x.Active == 0).ToList();
+            }
+            if (tournamentFilter == 3)
+            {
+                output = output.Where(x => x.Active == 1).ToList();
+            }
+
+            if (entryFeeFilter != "0")
+            {
+                switch (entryFeeFilter)
+                {
+                    case ">" : output = output.Where(x => x.EntryFee >  entryFee).ToList(); break;
+                    case ">=": output = output.Where(x => x.EntryFee >= entryFee).ToList(); break;
+                    case "<" : output = output.Where(x => x.EntryFee <  entryFee).ToList(); break;
+                    case "<=": output = output.Where(x => x.EntryFee <= entryFee).ToList(); break;
+                    case "=" : output = output.Where(x => x.EntryFee == entryFee).ToList(); break;
+                }
+
+            }
+            if (winnerId != 0)
+            {
+                output = output.Where(x => x.WinnerId == winnerId.GetValueOrDefault()).ToList();
+            }
+
+            return output;
+
         }
     }
 

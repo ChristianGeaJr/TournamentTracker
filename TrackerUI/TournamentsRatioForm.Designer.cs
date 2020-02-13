@@ -307,7 +307,7 @@
             this.tournamentMembers,
             this.winner,
             this.idDataGridViewTextBoxColumn});
-            this.tournamentsRatioDataGridView.DataSource = this.tournamentModelBindingSource;
+            this.tournamentsRatioDataGridView.DataSource = this.teamModelBindingSource;
             this.tournamentsRatioDataGridView.Location = new System.Drawing.Point(12, 338);
             this.tournamentsRatioDataGridView.Name = "tournamentsRatioDataGridView";
             this.tournamentsRatioDataGridView.ReadOnly = true;

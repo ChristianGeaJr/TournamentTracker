@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsForm));
             this.tournamentsRatioButton = new System.Windows.Forms.Button();
             this.reportsLable = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tournamentsGraphicViewButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -57,15 +57,16 @@
             this.reportsLable.TabIndex = 12;
             this.reportsLable.Text = "Reports";
             // 
-            // button1
+            // tournamentsGraphicViewButton
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(33, 149);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(353, 42);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Relation of Something Else";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tournamentsGraphicViewButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tournamentsGraphicViewButton.Location = new System.Drawing.Point(33, 149);
+            this.tournamentsGraphicViewButton.Name = "tournamentsGraphicViewButton";
+            this.tournamentsGraphicViewButton.Size = new System.Drawing.Size(353, 42);
+            this.tournamentsGraphicViewButton.TabIndex = 13;
+            this.tournamentsGraphicViewButton.Text = "Tournaments Graphic View";
+            this.tournamentsGraphicViewButton.UseVisualStyleBackColor = true;
+            this.tournamentsGraphicViewButton.Click += new System.EventHandler(this.tournamentsGraphicViewButton_Click);
             // 
             // button2
             // 
@@ -84,7 +85,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(416, 359);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tournamentsGraphicViewButton);
             this.Controls.Add(this.reportsLable);
             this.Controls.Add(this.tournamentsRatioButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -100,7 +101,7 @@
 
         private System.Windows.Forms.Button tournamentsRatioButton;
         private System.Windows.Forms.Label reportsLable;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button tournamentsGraphicViewButton;
         private System.Windows.Forms.Button button2;
     }
 }

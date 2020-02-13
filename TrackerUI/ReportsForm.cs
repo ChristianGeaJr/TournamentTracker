@@ -24,5 +24,11 @@ namespace TrackerUI
             TournamentsRatioForm frm = new TournamentsRatioForm();
             frm.Show();
         }
+
+        private void tournamentsGraphicViewButton_Click(object sender, EventArgs e)
+        {
+            TournamentGraphicViewForm frm = new TournamentGraphicViewForm();
+            frm.Show();
+        }
     }
 }
