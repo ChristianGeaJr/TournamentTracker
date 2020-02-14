@@ -17,11 +17,14 @@ namespace TrackerUI
         List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
         List<TeamModel> selectedTeams = new List<TeamModel>();
         List<PrizeModel> selectedPrizes = new List<PrizeModel>();
+        TournamentDashboardForm _frm;
 
-        public CreateTournamentForm()
+        public CreateTournamentForm(TournamentDashboardForm frm)
         {
             InitializeComponent();
             InitializeLists();
+            _frm = frm;
+
         }
 
         private void InitializeLists()
@@ -144,8 +147,16 @@ namespace TrackerUI
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
-
+ 
             //Validate data
+
+            if (string.IsNullOrWhiteSpace(tournamentNameTextBox.Text))
+            {
+                MessageBox.Show("Please, enter the tournament name", "Invalid Tournament name.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tournamentNameTextBox.Focus();
+                return;
+            }
+
             decimal fee = 0;
             bool validFee = decimal.TryParse(entryFeeTextBox.Text, out fee);
 
@@ -160,6 +171,7 @@ namespace TrackerUI
             tm.EntryFee = fee;
             tm.Prizes = selectedPrizes;
             tm.EnteredTeams = selectedTeams;
+            tm.Active = 1;
 
 
             TournamentLogic.CreateRounds(tm);
@@ -174,7 +186,7 @@ namespace TrackerUI
 
             MessageBox.Show("Tournament Created.");
 
-            TournamentViewerForm frm = new TournamentViewerForm(tm);
+            TournamentViewerForm frm = new TournamentViewerForm(tm, _frm);
             frm.Show();
 
             this.Close();

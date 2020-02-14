@@ -503,7 +503,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 
         public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines)
         {
-            //Id, TournamentName, EntryFee, (id|id|id| - List of EnteredTeams), (id|id|id| - List of Prizes), (Rounds - id^id^id|id^id^id|id^id^id)
+            //Id, TournamentName, EntryFee, (id|id|id| - List of EnteredTeams), (id|id|id| - List of Prizes), (Rounds - id^id^id|id^id^id|id^id^id), DateCreated, DateFinished, WinnerId
 
             List<TournamentModel> output = new List<TournamentModel>();
             List<TeamModel> teamModels = GlobalConfig.TeamFile.FullFilePath().LoadFile().ConvertToTeamModels();
@@ -554,7 +554,24 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                     t.Rounds.Add(ms);
                 }
 
-                
+
+                //new fields
+                if (!string.IsNullOrWhiteSpace(cols[6]))
+                {
+                    t.DateCreated = DateTime.Parse(cols[6]);
+                }
+                if (!string.IsNullOrWhiteSpace(cols[7]))
+                {
+                    t.DateFinished = DateTime.Parse(cols[7]);
+                }
+
+                if (!string.IsNullOrWhiteSpace(cols[8]))
+                {
+                    t.WinnerId = int.Parse(cols[8]);
+                    t.Winner = GlobalConfig.TeamFile.FullFilePath().LoadFile().ConvertToTeamModels().ToList().First(x => x.Id == t.WinnerId.GetValueOrDefault());
+                }
+
+                t.Active = byte.Parse(cols[9]);
 
                 output.Add(t);
             }
@@ -600,7 +617,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 }
 
 
-                lines.Add($"{ t.Id },{ t.TournamentName },{ t.EntryFee },{ string.Join("|", teamIds) },{ string.Join("|", prizeIds) },{ string.Join("|", rounds) }");
+                lines.Add($"{ t.Id },{ t.TournamentName },{ t.EntryFee },{ string.Join("|", teamIds) },{ string.Join("|", prizeIds) },{ string.Join("|", rounds) },{ t.DateCreated },{ t.DateFinished },{ t.WinnerId },{ t.Active }");
             }
 
             File.WriteAllLines(GlobalConfig.TournamentFile.FullFilePath(), lines);
