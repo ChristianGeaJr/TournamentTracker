@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TrackerLibrary.DataAccess;
+
 
 namespace TrackerLibrary
 {
@@ -53,5 +56,7 @@ namespace TrackerLibrary
         {
             return ConfigurationManager.AppSettings[key];
         }
+
+
     }
 }

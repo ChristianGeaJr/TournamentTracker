@@ -147,8 +147,16 @@ namespace TrackerUI
 
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
-
+ 
             //Validate data
+
+            if (string.IsNullOrWhiteSpace(tournamentNameTextBox.Text))
+            {
+                MessageBox.Show("Please, enter the tournament name", "Invalid Tournament name.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tournamentNameTextBox.Focus();
+                return;
+            }
+
             decimal fee = 0;
             bool validFee = decimal.TryParse(entryFeeTextBox.Text, out fee);
 

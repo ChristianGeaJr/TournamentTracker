@@ -153,7 +153,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TournamentModel> TournamentRatio(int dateFilter, DateTime dateCreated, DateTime dateFinished, int tournamentFilter, string entryFeeFilter, decimal? entryFee, int? winnerId)
         {
-            //TODO - Create the TournamentRatio() method for Text Files
+
             List<TournamentModel> output = GlobalConfig.TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels();
 
             if (dateFilter == 1)

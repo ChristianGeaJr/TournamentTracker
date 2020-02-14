@@ -33,7 +33,6 @@
             this.tournamentComboBox = new System.Windows.Forms.ComboBox();
             this.tournamentLabel = new System.Windows.Forms.Label();
             this.generateButton = new System.Windows.Forms.Button();
-            this.TesteLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // reportsLable
@@ -84,20 +83,6 @@
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
-            // TesteLabel
-            // 
-            this.TesteLabel.AutoSize = true;
-            this.TesteLabel.BackColor = System.Drawing.Color.White;
-            this.TesteLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TesteLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TesteLabel.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TesteLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.TesteLabel.Location = new System.Drawing.Point(621, 78);
-            this.TesteLabel.Name = "TesteLabel";
-            this.TesteLabel.Size = new System.Drawing.Size(96, 42);
-            this.TesteLabel.TabIndex = 31;
-            this.TesteLabel.Text = "label1";
-            // 
             // TournamentGraphicViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -105,7 +90,6 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(806, 657);
-            this.Controls.Add(this.TesteLabel);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.tournamentComboBox);
             this.Controls.Add(this.tournamentLabel);
@@ -128,6 +112,5 @@
         private System.Windows.Forms.ComboBox tournamentComboBox;
         private System.Windows.Forms.Label tournamentLabel;
         private System.Windows.Forms.Button generateButton;
-        private System.Windows.Forms.Label TesteLabel;
     }
 }

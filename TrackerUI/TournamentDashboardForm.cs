@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,32 @@ namespace TrackerUI
         {
             ReportsForm frm = new ReportsForm();
             frm.Show();
+        }
+
+        private void clearSettingsButton_Click(object sender, EventArgs e)
+        {
+            StringBuilder message = new StringBuilder();
+            message.AppendLine("Are you sure you want to reset the Initial Settings?");
+            message.AppendLine("Your tournament data is not going to be deleted.");
+            message.AppendLine("If you set the current data connection type again");
+            message.AppendLine("your saved data will be accesible.");
+
+            DialogResult result = MessageBox.Show(message.ToString(), "Reset Initial Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\TournamentTracker");
+                key.SetValue("DataConnection", "SQL", RegistryValueKind.String);
+                key.DeleteValue("DataConnection");
+                key.Close();
+                Application.Restart();
+            }
+            
+        }
+
+        private void clearSettingsButton_MouseHover(object sender, EventArgs e)
+        {
+
         }
     }
 }

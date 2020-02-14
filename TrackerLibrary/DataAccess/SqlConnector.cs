@@ -366,7 +366,6 @@ namespace TrackerLibrary.DataAccess
 
         public void CompleteTournament(TournamentModel model)
         {
-            //TODO - Inform Winner
 
             //dbo.spTournaments_Complete
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
@@ -381,7 +380,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TournamentModel> TournamentRatio(int dateFilter, DateTime dateCreated, DateTime dateFinished, int tournamentFilter, string entryFeeFilter, decimal? entryFee, int? winnerId)
         {
-            //TODO - Create the TournamentRatio() method for SQL
+
             List<TournamentModel> output;
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
