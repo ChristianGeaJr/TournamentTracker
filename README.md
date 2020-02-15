@@ -21,3 +21,8 @@ Para utilizar o armazenamento em SQL Server
 3) Execute o arquivo TournamentTracker Structure.sql para criar a estrutura do banco (tabelas, procedures, etc.)
 4) Pronto! agora é só executar o programa. Na tela Inital Settings, ao escolher a opção SQL Server, é possivel fazer um teste de conexão para verificar se está tudo certo.
 
+=== Para desinstalar o programa ===
+1) Abra a Painel de Controle > Programas e recursos
+2) Selecione o item TrackerUI
+3) Clique em desinstalar e confirme a desinstalação.
+
