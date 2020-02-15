@@ -9,13 +9,15 @@ Também adicionado o botão Reset Initial Settings na telaTournamentsDashboardFo
 • Botão Reset Initial Settings (Resetar configurações iniciais) para que o tipo de armazenamento de dados possa ser alternando (arquivo .txt ou sql server).
 
 ==== Testando o Sistema===
+
 Para testar o Sitema: 
 1) Baixe o arquivo TournamentTracker.rar que é a versão de liberação do Sitema
 2) Copie para algum diretório e Descompacte na sua máquina.
 3) Execute o arquivo setup.exe e comece a usar.
 
 === Utilizando o armazenamento em SQL Server==
-Para utilizar o armazenamento em SQL Server
+
+Para utilizar o armazenamento em SQL Server:
 1) Tenha o Sql Server instalado na máquina (à partir do 2008 R2)
 2) Crie um banco com o nome Tournaments.
 3) Execute o arquivo TournamentTracker Structure.sql para criar a estrutura do banco (tabelas, procedures, etc.)
