@@ -10,9 +10,9 @@ Também adicionado o botão Reset Initial Settings na telaTournamentsDashboardFo
 
 ==== Testando o Sistema===
 Para testar o Sitema: 
-1) Baixe o arquivo TournamentTracker.rar que a versão de liberação do Sitema
-2) Descompacte na sua máquina e copie para algum diretório.
-3) Execute o arquivo setup.exe e comece a usar
+1) Baixe o arquivo TournamentTracker.rar que é a versão de liberação do Sitema
+2) Copie para algum diretório e Descompacte na sua máquina.
+3) Execute o arquivo setup.exe e comece a usar.
 
 === Utilizando o armazenamento em SQL Server==
 Para utilizar o armazenamento em SQL Server
