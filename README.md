@@ -11,7 +11,7 @@ Também adicionado o botão Reset Initial Settings na telaTournamentsDashboardFo
 ==== Testando o Sistema===
 
 Para testar o Sitema: 
-1) Baixe o arquivo TournamentTracker.rar que é a versão de liberação do Sitema
+1) Na sessão Release, baixe o arquivo TournamentTracker.rar que é a versão de liberação do Sitema,
 2) Copie para algum diretório e Descompacte na sua máquina.
 3) Execute o arquivo setup.exe e comece a usar.
 
