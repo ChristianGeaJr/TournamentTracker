@@ -25,6 +25,6 @@ Para utilizar o armazenamento em SQL Server:
 
 === Para desinstalar o programa ===
 1) Abra a Painel de Controle > Programas e recursos
-2) Selecione o item TrackerUI
+2) Selecione o item TournamentTracker
 3) Clique em desinstalar e confirme a desinstalação.
 
