@@ -1,5 +1,5 @@
 # TournamentTracker
-Aplicação desenvolvida para controle de torneios. Ao criar um torneio, a aplicação gera uma série de rodadas e uma sequência de chaves contendo os times participantes em cada rodada. Este Sistema foi desenvolvido ao longo do curso 'Create a C# Application from Start to Finish - Complete Course' na plataforma freecodecamp => https://www.freecodecamp.org/news/c-sharp-24-hour-course/
+Aplicação desenvolvida em Windows Forms para controle de torneios. Ao criar um torneio, a aplicação gera uma série de rodadas e uma sequência de chaves contendo os times participantes em cada rodada. Este Sistema foi desenvolvido ao longo do curso 'Create a C# Application from Start to Finish - Complete Course' na plataforma freecodecamp => https://www.freecodecamp.org/news/c-sharp-24-hour-course/
 
 Após a finalização do curso, foram adicionadas a seguintes telas:
 •	Tournaments Ratio (Relação de torneios) => Com diversos filtros para extrair a relação de torneios e fazer a sua análise dos torneios.
